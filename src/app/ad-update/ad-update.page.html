@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Your Ads</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <h1 class="pt-1 pb-1" align="center">
+    <strong>Modify Easly Your <span style="color: orangered;">Ads Here</span> !</strong>
+  </h1>
+
+
+  <ion-card>      
+    <ion-card-content>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-input label="Title of Ads" name="title" [(ngModel)]="Ad.title" label-placement="floating" fill="outline" placeholder="The Title of Ads"></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-list>
+              <ion-item>
+                <ion-select label="Ads's Type" placeholder="" name="type" [(ngModel)]="Ad.type">
+                  <ion-select-option *ngFor="let t of types" value="{{t}}">{{t|titlecase}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+          <ion-col size="12">
+            <ion-textarea label="Description" name="description" [(ngModel)]="Ad.description" labelPlacement="floating" placeholder="Enter text"></ion-textarea>
+          </ion-col>
+          <ion-col size="12">
+            <!-- <ion-button expand="full">
+              <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+              <ion-label slot="end">Upload Image</ion-label>
+              <input type="file" id="file-input"
+                accept="image/png, image/jpeg">
+            </ion-button> -->
+            <ion-input label="URL's Picture" name="photo" [(ngModel)]="Ad.photo" label-placement="floating" fill="outline" placeholder="URL of photo"></ion-input>
+
+          </ion-col>
+          <ion-col size="12">
+            <ion-button class="btn-orange mt-5" expand="block"  *ngIf="!status.loading" (click)="updateAd()">Update Adv</ion-button>
+            <ion-button class="btn-orange mt-5" expand="block" disabled *ngIf="status.loading">
+              <ion-spinner></ion-spinner>
+            </ion-button>
+          </ion-col>         
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

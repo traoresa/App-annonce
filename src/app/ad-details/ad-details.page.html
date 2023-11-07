@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{Ad.title | titlecase}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="img" [style.background-image]="'url('+''+Ad.photo+''+')'">
+
+  </div>
+  <ion-grid class="desc">
+    <h1><strong>{{Ad.title | titlecase}}</strong></h1>
+    <small><em>{{ownerName|titlecase}}</em></small> <br>
+    <small>{{Ad.created_at }}</small>
+    <p>
+      {{ Ad.description }}
+    </p>
+
+    <ion-button class="mt-5 see-more" expand="block">See More Ads</ion-button>
+    <ion-button class="" color="warning" expand="block" routerLink="/ad-update/{{idAds}}" *ngIf="ownerstatus">
+      Edit Annonce &nbsp;
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="" color="danger" expand="block" (click)="presentAlert()" *ngIf="ownerstatus">
+      Delete Annonce &nbsp;
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-grid>
+
+
+
+</ion-content>

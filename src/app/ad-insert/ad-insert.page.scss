@@ -1,0 +1,22 @@
+ion-content, ion-title.header {
+    --background: beige;
+}
+
+ion-card {
+    height: 100vh;
+}
+
+ion-button {
+    color: white;
+    --background: orangered;
+}
+
+.error {
+    background-color: red;
+    color: white;
+}
+
+.success {
+    background-color: green;
+    color: white;
+}
