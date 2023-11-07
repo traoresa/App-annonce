@@ -9,9 +9,11 @@
 
 <ion-content [fullscreen]="true">
 
+  <!-- Image de l'annonce -->
   <div class="img" [style.background-image]="'url('+''+Ad.photo+''+')'">
 
   </div>
+  <!-- grid info annonce -->
   <ion-grid class="desc">
     <h1><strong>{{Ad.title | titlecase}}</strong></h1>
     <small><em>{{ownerName|titlecase}}</em></small> <br>

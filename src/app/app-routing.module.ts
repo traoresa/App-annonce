@@ -14,10 +14,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'advertissement',
-    loadChildren: () => import('./advertissement/advertissement.module').then( m => m.AdvertissementPageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
   },

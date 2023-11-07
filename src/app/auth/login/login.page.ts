@@ -18,7 +18,7 @@ import { BaseService } from 'src/app/services/auth/base.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  data:User = {
+  data:User = { // variable pour les users form
     email: "",
     password: ""
   };
@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
       (s: any) => {
         console.log(s);
 
-        
+        // creation de la variable intermediaire
         const data = {
           _id: s.user.uid,
           email: s.user.email,

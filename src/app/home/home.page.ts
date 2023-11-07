@@ -11,17 +11,17 @@ import { Auth } from '@angular/fire/auth';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-color:string = 'blue';
-img:string = "url('assets/imgs/ocean-3605547_1280.jpg')";
+color:string = 'blue'; //n color pour les tests
+img:string = "url('assets/imgs/ocean-3605547_1280.jpg')"; // img pour les test
 status = {
   loading: false
 };
 
 
-advertissements:any = [];
-querySnapshot: any;
-query: any;
-uid:any;
+advertissements:any = []; // variable liste des annonces
+querySnapshot: any; // variable pour la response query firebase
+query: any; // variable pour la query firebase
+uid:any; // id utilisateur
   constructor(private firestore: Firestore, private auth: BaseService, private authFireBase: Auth ) {}
 
 

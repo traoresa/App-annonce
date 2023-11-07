@@ -14,7 +14,7 @@ import { Types } from '../datas/Types';
   styleUrls: ['./ad-insert.page.scss'],
 })
 export class AdInsertPage implements OnInit {
-ad: Ads = {
+ad: Ads = { // variable annonce
   title: "",
   description: "",
   type: "",
@@ -23,11 +23,11 @@ ad: Ads = {
   created_at: new Date().toLocaleDateString()
 };
 
-status = {
-  loading: false
+status = { // status 
+  loading: false // pour loading animation
 };
 
-types!:Array<string>;
+types!:Array<string>; // variable pour stocker les types
 
   constructor(private AuthBaseService: BaseService, private firestore: Firestore, private toastController: ToastController) { }
 

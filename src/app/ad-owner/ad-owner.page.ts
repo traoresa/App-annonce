@@ -13,15 +13,15 @@ import { BaseService } from '../services/auth/base.service';
   styleUrls: ['./ad-owner.page.scss'],
 })
 export class AdOwnerPage implements OnInit {
-  uid!: string;
-  ownerName!: string;
-  advertissements: any;
+  uid!: string; // id utilisateur
+  ownerName!: string; // nom auteur
+  advertissements: any; // annonce list
 
   status = {
     loading: false,
   };
 
-  firestore = Inject(Firestore)
+  firestore = Inject(Firestore) // firestore instance
   /**
    * Cette page ne fonctionne pas très bien
    * Problème avec la fonction where de firebase
@@ -33,20 +33,20 @@ export class AdOwnerPage implements OnInit {
   constructor(private route: ActivatedRoute, private auth: Auth, private authService: BaseService,) { }
 
   ngOnInit() {
-    this.getOwner();
+    this.getOwner(); // appel de l'auteur
   }
 
-  async ionViewDidEnter() {
-    const id = this.route.snapshot.paramMap.get("uid");
+  async ionViewDidEnter() { // execution à chaque ouverture
+    const id = this.route.snapshot.paramMap.get("uid"); // recupération de l'id dans url
     if (id) {
-      this.uid = id;
-      console.log(this.uid);  
+      this.uid = id; // assignation à la variable
+      // console.log(this.uid);  
 
-      await this.getAdByOwner(this.uid);
+      await this.getAdByOwner(this.uid); // récupérer les ads par id
     }
   }
 
-  getOwner() {
+  getOwner() { // verifier si user connecté et assigner son email
     if (this.auth.currentUser && this.auth.currentUser.email) {
       this.ownerName = this.auth.currentUser.email;
       console.log(this.ownerName);
@@ -55,11 +55,11 @@ export class AdOwnerPage implements OnInit {
   }
 
 
-  async getAdByOwner(id: string) {
-    this.status.loading = true;
+  async getAdByOwner(id: string) { // récupérer les ads par id
+    this.status.loading = true; // démarrer l'animation
 
-    const myCollection = collection(this.firestore, 'Ads');
-    const q = query(myCollection, where("type", "==", "Technology"));
+    const myCollection = collection(this.firestore, 'Ads'); // récupérer la connection
+    const q = query(myCollection, where("type", "==", "Technology")); // définition de la requete
 
     getDocs(q)
       .then((querySnapshot) => {

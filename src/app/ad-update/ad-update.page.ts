@@ -12,9 +12,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./ad-update.page.scss'],
 })
 export class AdUpdatePage implements OnInit {
-  idAds!: string;
-  querySnapshot: any;
-  Ad:Ads = {
+  idAds!: string; // id de l'annonce
+  querySnapshot: any; // variable de requete
+  Ad:Ads = { // variable pour lannonce
     title: "",
     description: "",
     type: "",
@@ -27,7 +27,7 @@ export class AdUpdatePage implements OnInit {
     loading: false
   };
 
-  types!:Array<string>;
+  types!:Array<string>; // variable pour stocker les types
 
   constructor(private route: ActivatedRoute, private firestore: Firestore, private toastController: ToastController, private location: Location) { }
 

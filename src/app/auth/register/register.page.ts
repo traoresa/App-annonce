@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-data:User = {
+data:User = {// variable pour les users form
   email: "",
   password: ""
 };

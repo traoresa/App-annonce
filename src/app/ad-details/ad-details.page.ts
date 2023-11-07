@@ -14,11 +14,11 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./ad-details.page.scss'],
 })
 export class AdDetailsPage implements OnInit {
-idAds!: string;
-img:string = "url('assets/imgs/ocean-3605547_1280.jpg')";
+idAds!: string; // id de l'annonce
+img:string = "url('assets/imgs/ocean-3605547_1280.jpg')"; // image de base pour test
 
-querySnapshot: any;
-Ad:Ads = {
+querySnapshot: any; // variable de requete firebase
+Ad:Ads = { // variable annonce
   title: "",
   description: "",
   type: "",
@@ -26,8 +26,8 @@ Ad:Ads = {
   owner: "",
   created_at: new Date().toLocaleDateString()
 };
-ownerName:string = "";
-ownerstatus = false;
+ownerName:string = ""; // nom de l'auteur = email
+ownerstatus = false; // status pour vérifier si c'est l'auteur
   constructor(private route: ActivatedRoute, private firestore: Firestore, private auth: Auth, private alertController: AlertController, private location: Location, private toastController: ToastController) { }
 
   async ngOnInit() {   
